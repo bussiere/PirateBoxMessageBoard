@@ -11,7 +11,7 @@ from message.models import Message
 
 
 def index(request,idm=None):
-    Nbrepost = 20
+    nbrepost = 20
     if request.method == 'POST':
         form = MessageForm(request.POST) # A form bound to the POST data
         if form.is_valid(): # All validation rules pass
@@ -20,15 +20,29 @@ def index(request,idm=None):
             message = form.cleaned_data['Message']
             post = Message.objects.create(Description=description,Pseudo=pseudo,Message=message)
             post.save()
+    if request.method == 'GET':
+        if request.GET.get('idm'):
+            idm = int(request.GET['idm'])
+            print idm
     form = MessageForm() # An unbound form
     total = Message.objects.count()
-    if idm == None or idm > total or idm < Nbrepost :
+    if idm == None or idm > total or idm < nbrepost :
         idm = total
-        
-    listemessage = Message.objects.filter(id__range=(idm-Nbrepost,idm)).order_by('-id')
+    # j = total + 444
+    # i = total
+    # while i < j :
+    #     i = i +1
+    #     post =  Message.objects.create(Description=i,Pseudo=i,Message=i)
+    #     post.save()
+    listemessage = Message.objects.filter(id__range=(idm-nbrepost,idm)).order_by('-id')
+    supp = nbrepost + idm + 1
+    minus =  idm - nbrepost -1
+    return render_to_response('index.html', {'form': form,'listemessage':listemessage,'idm':idm,'nbrepost':nbrepost,'total':total,'supp':supp,'minus':minus},RequestContext(request))
 
-    return render_to_response('index.html', {'form': form,'listemessage':listemessage,'idm':idm,'Nbrepost':Nbrepost,'total':total},RequestContext(request))
 
-
-def id(request):
-    pass
+def id(request,idm=None):
+    idm = 0
+    if request.method == 'GET':
+        if request.GET.get('idm'):
+            idm = int(request.GET['idm'])
+            print idm
