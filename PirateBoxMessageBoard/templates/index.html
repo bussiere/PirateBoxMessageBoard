@@ -25,7 +25,7 @@
     <div class="span8">
        <ul class="active">
       {% for message in listemessage %}
-<li>{{ message.id }}</li>
+<li><a href="../message/{{ message.id }}">{{ message.Description }} by {{ message.Pseudo }} at {{ message.Date }} </a></li>
       {%endfor%}
     </ul>
     </div>

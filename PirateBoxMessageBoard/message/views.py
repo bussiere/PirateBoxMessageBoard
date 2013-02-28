@@ -10,7 +10,8 @@ from message.models import Message
 
 
 
-def index(request):
+def index(request,idm=None):
+	Nbrepost = 20
     if request.method == 'POST':
     	form = MessageForm(request.POST) # A form bound to the POST data
         if form.is_valid(): # All validation rules pass
@@ -20,9 +21,13 @@ def index(request):
             post = Message.objects.create(Description=description,Pseudo=pseudo,Message=message)
             post.save()
     form = MessageForm() # An unbound form
-    listemessage = Message.objects.values('id').order_by('-id')[:10]
+    temp = Message.objects.count()
+    if idm == None or idm > temp or idm < Nbrepost :
+    	idm = temp
+    	
+    listemessage = Message.objects.filter(id__range=(idm-Nbrepost,idm))
 
-    return render_to_response('index.html', {'form': form,'listemessage':listemessage},RequestContext(request))
+    return render_to_response('index.html', {'form': form,'listemessage':listemessage,'idm':idm,'Nbrepost':Nbrepost},RequestContext(request))
 
 
 def id(request):
