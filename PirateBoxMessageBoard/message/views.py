@@ -19,13 +19,10 @@ def index(request):
             message = form.cleaned_data['Message']
             post = Message.objects.create(Description=description,Pseudo=pseudo,Message=message)
             post.save()
-
-
-    else:
-    	pass
     form = MessageForm() # An unbound form
+    listemessage = Message.objects.values('id').order_by('-id')[:10]
 
-    return render_to_response('index.html', {'form': form},RequestContext(request))
+    return render_to_response('index.html', {'form': form,'listemessage':listemessage},RequestContext(request))
 
 
 def id(request):

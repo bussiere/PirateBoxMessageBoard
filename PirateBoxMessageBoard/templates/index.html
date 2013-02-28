@@ -15,9 +15,21 @@
     <div class="span8">Message :</div>
     <div class="span8" ><textarea class="field span12" id="id_Message"  name="Message" rows="6" placeholder="Message"></textarea></div>
   </div>
- </form>
- <div class="row">
+   <div class="row">
     <div class="span8"><input class="btn btn-inverse" type="submit" value="Submit" /></div>
+
+    </div>
+ </form>
+
+  <div class="row">
+    <div class="span8">
+       <ul class="active">
+      {% for message in listemessage %}
+<li>{{ message.id }}</li>
+      {%endfor%}
+    </ul>
+    </div>
+  </div>
 </div>
   <div class="row">
     <div class="span8">Code Source : <a href="../invitation/">Fallow the rabbit</a></div>
