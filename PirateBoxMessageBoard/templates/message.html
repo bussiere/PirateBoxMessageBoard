@@ -1,43 +1,34 @@
 {% include "header.html" %}
-<form action="../" method="post">{% csrf_token %}
 <div class="container">
   <div class="page-header">Message Board done by bussiere.</div>
 
   <div class="row">
-    <div class="span8">Pseudo :</div>
-    <div class="span8">{{ form.Pseudo }}</div>
+    <div class="span4">Pseudo :</div>
+    <div class="span8">{{ message.Pseudo }}</div>
      </div>
        <div class="row">
-    <div class="span8">Description :</div>
-    <div class="span8">{{ form.Description }}</div>
+    <div class="span4">Date :</div>
+    <div class="span8">{{ message.Date }}</div>
+     </div>
+       <div class="row">
+    <div class="span4">Description :</div>
+    <div class="span8">{{ message.Description }}</div>
      </div>
   <div class="row">
     <div class="span8">Message :</div>
-    <div class="span8" ><textarea class="field span8" id="id_Message"  name="Message" rows="6" placeholder="Message"></textarea></div>
   </div>
-   <div class="row">
-    <div class="span8"><input class="btn btn-inverse" type="submit" value="Submit" /></div>
-
-    </div>
- </form>
+    <div class="row">
+     <div class="span8" >{{ message.Message }}</div>
+  </div>
 
   <div class="row">
-    <div class="span8">
-       <ul class="active">
-      {% for message in listemessage %}
-<li><a href="../message/{{ message.id }}">{{ message.Description }} by {{ message.Pseudo }} at {{ message.Date }} </a></li>
-      {%endfor%}
-    </ul>
-    </div>
+    <div class="span1"><a href="../message/1"><<</a></div>
+     <div class="span1"><a href="../message/{{ minus }}"><</a></div>
+     <div class="span1"><a href="../message/{{ supp }}">></a></div>
+     <div class="span1"><a href="../message/{{total}}">>></a></div>
   </div>
-</div>
-  <div class="row">
-    <div class="span1"><a href="../?idm={{total}}"><<</a></div>
-     <div class="span1"><a href="../?idm={{ supp }}"><</a></div>
-     <div class="span1"><a href="../?idm={{ minus }}">></a></div>
-     <div class="span1"><a href="../?idm={{nbrepost}}">>></a></div>
-  </div>
-</div>
+  <br>
+<a href="../../../">Retour</a>
 <br>
   <div class="row">
     <div class="span8">Code Source : <a href="../invitation/">Fallow the rabbit</a></div>

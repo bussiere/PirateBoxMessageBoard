@@ -40,9 +40,26 @@ def index(request,idm=None):
     return render_to_response('index.html', {'form': form,'listemessage':listemessage,'idm':idm,'nbrepost':nbrepost,'total':total,'supp':supp,'minus':minus},RequestContext(request))
 
 
-def id(request,idm=None):
-    idm = 0
+def message(request,idm=None):
+    if idm == None :
+        idm = 1
+    else :
+        idm = int(idm)
     if request.method == 'GET':
         if request.GET.get('idm'):
             idm = int(request.GET['idm'])
             print idm
+    print idm
+    try :
+        message = Message.objects.get(id__exact=idm)
+    except :
+        idm = 1
+        message = Message.objects.get(id__exact=idm)
+    total = Message.objects.count()
+    supp =  idm + 1
+    minus =  idm  -1
+    print message
+    return render_to_response('message.html', {'message': message,'idm':idm,'total':total,'supp':supp,'minus':minus},RequestContext(request))
+
+def my_404(request,idm=None):
+    return render_to_response('404.html', {},RequestContext(request))
