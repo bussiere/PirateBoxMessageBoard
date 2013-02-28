@@ -12,5 +12,6 @@ urlpatterns = patterns('',
     url(r'message/(\d+)$', 'message.views.message',name='message-message'),
     # Uncomment the next line to enable the admin:
     url(r'^admin/', include(admin.site.urls)),
+    #(r'^s/(?P<path>.*)$', 'django.views.static.serve',{'document_root': '/path/to/media'}),
 )
 handler404 = 'message.views.my_404'
