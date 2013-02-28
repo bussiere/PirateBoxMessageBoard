@@ -83,7 +83,7 @@ class DjangoApplication(object):
         """Run the CherryPy server."""
         from django.conf import settings
         from django.core.handlers.wsgi import WSGIHandler
-        from translogger import TransLogger
+        from paste.translogger import TransLogger
  
         host, port = urllib.splitnport(netloc, 80)
         host = socket.gethostbyname(host)
