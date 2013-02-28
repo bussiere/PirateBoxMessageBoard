@@ -5,13 +5,20 @@ from django.contrib.auth import authenticate, login,logout
 from django.shortcuts import redirect
 from django.core.urlresolvers import reverse
 from message.forms import MessageForm
-from message.models import Message
+from message.models import Message,Configuration
 # Create your views here.
 
 
 
 def index(request,idm=None):
     nbrepost = 20
+    try :
+        conf = Configuration.objects.get(id__exact=1)
+        nbrepost = conf.NbreMessage
+    except :
+        pass
+
+    
     if request.method == 'POST':
         form = MessageForm(request.POST) # A form bound to the POST data
         if form.is_valid(): # All validation rules pass
@@ -28,14 +35,14 @@ def index(request,idm=None):
     total = Message.objects.count()
     if idm == None or idm > total or idm < nbrepost :
         idm = total
-    # j = total + 444
-    # i = total
-    # while i < j :
-    #     i = i +1
-    #     post =  Message.objects.create(Description=i,Pseudo=i,Message=i)
-    #     post.save()
-    listemessage = Message.objects.filter(id__range=(idm-nbrepost,idm)).order_by('-id')
-    supp = nbrepost + idm + 1
+    j = total + 444
+    i = total
+    while i < j :
+        i = i +1
+        post =  Message.objects.create(Description=i,Pseudo=i,Message=i)
+        post.save()
+    listemessage = Message.objects.filter(id__range=(idm-nbrepost+1,idm)).order_by('-id')
+    supp = nbrepost + idm +1
     minus =  idm - nbrepost -1
     return render_to_response('index.html', {'form': form,'listemessage':listemessage,'idm':idm,'nbrepost':nbrepost,'total':total,'supp':supp,'minus':minus},RequestContext(request))
 

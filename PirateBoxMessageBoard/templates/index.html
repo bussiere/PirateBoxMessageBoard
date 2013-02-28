@@ -4,25 +4,25 @@
   <div class="page-header">Message Board done by bussiere.{% include "irc.html" %}</div>
 
   <div class="row">
-    <div class="span8">Pseudo :</div>
-    <div class="span8">{{ form.Pseudo }}</div>
+    <div class="span2">Pseudo :</div>
+    <div class="span10">{{ form.Pseudo }}</div>
      </div>
        <div class="row">
-    <div class="span8">Description :</div>
-    <div class="span8">{{ form.Description }}</div>
+    <div class="span2">Description :</div>
+    <div class="span10">{{ form.Description }}</div>
      </div>
   <div class="row">
-    <div class="span8">Message :</div>
-    <div class="span8" ><textarea class="field span8" id="id_Message"  name="Message" rows="6" placeholder="Message"></textarea></div>
+    <div class="span2">Message :</div>
+    <div class="span10" ><textarea class="field span8" id="id_Message"  name="Message" rows="6" placeholder="Message"></textarea></div>
   </div>
    <div class="row">
-    <div class="span8"><input class="btn btn-inverse" type="submit" value="Submit" /></div>
+    <div class="span12"><input class="btn btn-inverse" type="submit" value="Submit" /></div>
 
     </div>
  </form>
 
   <div class="row">
-    <div class="span8">
+    <div class="span12">
        <ul class="active">
       {% for message in listemessage %}
 <li><a href="../message/{{ message.id }}">{{ message.Description }} by {{ message.Pseudo }} at {{ message.Date }} </a></li>
@@ -32,15 +32,15 @@
   </div>
 </div>
   <div class="row">
-    <div class="span1"><a href="../?idm={{total}}"><<</a></div>
-     <div class="span1"><a href="../?idm={{ supp }}"><</a></div>
-     <div class="span1"><a href="../?idm={{ minus }}">></a></div>
-     <div class="span1"><a href="../?idm={{nbrepost}}">>></a></div>
+    <div class="span3"><a href="../?idm={{total}}"><<</a></div>
+     <div class="span3"><a href="../?idm={{ supp }}"><</a></div>
+     <div class="span3"><a href="../?idm={{ minus }}">></a></div>
+     <div class="span3"><a href="../?idm={{nbrepost}}">>></a></div>
   </div>
 </div>
 <br>
   <div class="row">
-    <div class="span8">Code Source : <a href="../invitation/">Fallow the rabbit</a></div>
+    <div class="span8">Code Source : <a href="https://github.com/bussiere/PirateBoxMessageBoard">Fallow the rabbit</a></div>
   </div>
 </div>
 

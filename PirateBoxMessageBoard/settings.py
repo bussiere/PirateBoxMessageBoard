@@ -6,7 +6,7 @@ except :
 import os.path
 PROJECT_ROOT = os.path.normpath(os.path.dirname(__file__)+'/../PirateBoxMessageBoard')  # The '/..' is needed to work with Django 1.4+, remove for older versions.
 
-DEBUG = False
+DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 INTERNAL_IPS = ('127.0.0.1',)
 

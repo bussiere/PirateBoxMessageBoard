@@ -7,3 +7,8 @@ class Message (models.Model):
     Date = models.DateTimeField(auto_now_add=True, blank=True)
     def __str__(self):  
           return "%s %s" % (self.id,self.Description)
+
+class Configuration (models.Model):  
+    NbreMessage = models.IntegerField(null=True, blank=True)
+    def __str__(self):  
+          return "%s %s" % (str(self.id),str(self.NbreMessage))
