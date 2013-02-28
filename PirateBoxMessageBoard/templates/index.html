@@ -1,1 +1,23 @@
-tezst
+{% include "header.html" %}
+<form action="../" method="post">{% csrf_token %}
+<div class="container">
+  <div class="page-header">Message Board done by bussiere.</div>
+
+  <div class="row">
+    <div class="span8">Username :</div>
+    <div class="span8">{{ form.Username }}</div>
+     </div>
+  <div class="row">
+    <div class="span8">Message :</div>
+    <div class="span8">{{ form.Message }}</div>
+  </div>
+ </form>
+ <div class="row">
+    <div class="span8"><input class="btn btn-inverse" type="submit" value="Submit" /></div>
+</div>
+  <div class="row">
+    <div class="span8">Code Source : <a href="../invitation/">Fallow the rabbit</a></div>
+  </div>
+</div>
+
+{% include "footer.html" %}
