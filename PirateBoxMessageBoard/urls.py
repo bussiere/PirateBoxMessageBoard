@@ -14,4 +14,4 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
     #(r'^s/(?P<path>.*)$', 'django.views.static.serve',{'document_root': '/path/to/media'}),
 )
-handler404 = 'message.views.my_404'
+handler404 = 'message.views.index'
