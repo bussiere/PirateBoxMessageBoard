@@ -1,4 +1,4 @@
-from django.conf.urls.defaults import patterns, include, url
+from django.conf.urls import patterns, include, url
 
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
@@ -8,10 +8,12 @@ urlpatterns = patterns('',
     # Examples:
     # url(r'^$', 'views.home', name='home'),
     # url(r'^Jackpoint/', include('foo.urls')),
-    url(r'^$', 'message.views.index',name='message-index'),
-    url(r'message/(\d+)$', 'message.views.message',name='message-message'),
+    url(r'^$', 'message.views.index',name='message-index'),  
+    url(r'^404/$','message.views.my_404',name='message-404'),
+    url(r'^message/(\d+)$', 'message.views.message',name='message-message'),
     # Uncomment the next line to enable the admin:
     url(r'^admin/', include(admin.site.urls)),
     #(r'^s/(?P<path>.*)$', 'django.views.static.serve',{'document_root': '/path/to/media'}),
 )
 handler404 = 'message.views.my_404'
+#handler500 = 'message.views.my_404'

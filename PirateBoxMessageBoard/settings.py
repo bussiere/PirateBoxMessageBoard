@@ -4,9 +4,9 @@ try :
 except :
     pass
 import os.path
-PROJECT_ROOT = os.path.normpath(os.path.dirname(__file__)+'/../PirateBoxMessageBoard')  # The '/..' is needed to work with Django 1.4+, remove for older versions.
+PROJECT_ROOT = '/home/pi/PirateBox/PirateBoxMessageBoard'  # The '/..' is needed to work with Django 1.4+, remove for older versions.
 
-DEBUG = True
+DEBUG =   True 
 TEMPLATE_DEBUG = DEBUG
 INTERNAL_IPS = ('127.0.0.1',)
 
@@ -19,7 +19,7 @@ MANAGERS = ADMINS
 DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
-            'NAME': 'PirateBoxMessageBoard.db',                      # Or path to database file if using sqlite3.
+            'NAME': '/home/pi/PirateBox/PirateBoxMessageBoard/PirateBoxMessageBoard.db',                      # Or path to database file if using sqlite3.
             'USER': '',                      # Not used with sqlite3.
             'PASSWORD': '',                  # Not used with sqlite3.
             'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
@@ -88,7 +88,7 @@ STATICFILES_FINDERS = (
 )
 
 # Make this unique, and don't share it with anybody.
-SECRET_KEY = ''
+SECRET_KEY = 'tamereenslip'
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
@@ -103,7 +103,6 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    'debug_toolbar.middleware.DebugToolbarMiddleware',
 )
 
 ROOT_URLCONF = 'urls'
@@ -133,8 +132,6 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.admin',
-    'debug_toolbar',
-    'south',
     'message',
     'django.contrib.admin',
     'django.contrib.admindocs',

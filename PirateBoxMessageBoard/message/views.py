@@ -65,8 +65,7 @@ def message(request,idm=None):
     total = Message.objects.count()
     supp =  idm + 1
     minus =  idm  -1
-    print message
     return render_to_response('message.html', {'message': message,'idm':idm,'total':total,'supp':supp,'minus':minus},RequestContext(request))
 
 def my_404(request,idm=None):
-    return render_to_response('404.html', {},RequestContext(request))
+    return redirect('http://10.0.0.1/')

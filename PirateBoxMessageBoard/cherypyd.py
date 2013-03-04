@@ -116,7 +116,7 @@ if __name__ == '__main__':
  
     parser = argparse.ArgumentParser(prog='cherrypy_server',
         description='Starts a CherryPy web server for a Django application.')
-    parser.add_argument('netloc', default='localhost:8000',
+    parser.add_argument('netloc', default='192.168.0.22:80',
         metavar='optional host name, or ipaddr:port', nargs='?')
     parser.add_argument('--noreload', dest='reload', action='store_false',
         default=True, help='Tells CherryPy to NOT use the auto-reloader.')
