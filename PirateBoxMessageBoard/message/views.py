@@ -68,4 +68,4 @@ def message(request,idm=None):
     return render_to_response('message.html', {'message': message,'idm':idm,'total':total,'supp':supp,'minus':minus},RequestContext(request))
 
 def my_404(request,idm=None):
-    return redirect('http://10.0.0.1/')
+    return redirect('/')

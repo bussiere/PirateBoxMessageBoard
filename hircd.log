@@ -2,3 +2,8 @@
 2013-03-02 00:43:31,517:ERROR:error(98, 'Address already in use')
 2013-03-02 00:46:28,410:ERROR:error(98, 'Address already in use')
 2013-03-02 00:46:55,525:ERROR:error(98, 'Address already in use')
+2013-03-02 02:40:42,093:INFO:Starting hircd
+2013-03-02 02:40:42,107:DEBUG:configfile = /home/pi/PirateBox/hircd.ini
+2013-03-02 02:40:42,109:DEBUG:logfile = /home/pi/PirateBox/hircd.log
+2013-03-02 02:40:42,126:INFO:We're being verbose
+2013-03-02 02:40:42,198:ERROR:error(98, 'Address already in use')
