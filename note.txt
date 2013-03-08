@@ -343,3 +343,6 @@ fi
 exit 0
 
 PIRAT3_B0x_IRc_
+
+
+passwd pirate -n 6666
